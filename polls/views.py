@@ -1,40 +1,26 @@
 # Create your views here
 
 from django.http import HttpResponse
+from django.shortcuts import render 
 
 from .models import Question
 
 
-def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    output = ', '.join([q.question_text for q in latest_question_list])
-    return HttpResponse(output)
+#def index(request):
+ #   latest_question_list = Question.objects.order_by('-pub_date')[:5]
+  # return HttpResponse(output)
 
 
 
 
 def index(request):
-    return HttpResponse("hello.")
+    return render(request,"index.html",)
 
-def index_abc(request):
-    return HttpResponse("abc url.")
+def About(request):
+    return HttpResponse("<h1>we are the professional website, maker Between stimulus and response, there is a space where we choose our response.</h1>")
 
-def index_xyz(request):
-    return HttpResponse("xyz !!")
+def Services(request):
+    return HttpResponse("<h1>website maker </h1>")
 
-def index_why(request):
-    return HttpResponse(" <h1>WELCOME TO DARK WEB</h1>!!  <h1>NITIN</h1> ")
-
-
-def just(request):
-    return HttpResponse("just")
-
-def detail(request, question_id):
-    return HttpResponse("You're looking at question %s." % question_id)
-
-def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
-
-def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
+def Contact(request):
+    return HttpResponse("<h1>WELCOME TO DARK WEB!!  NITIN</h1>")

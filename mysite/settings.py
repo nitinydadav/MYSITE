@@ -25,7 +25,7 @@ SECRET_KEY = '#(35khe8fvew)i665_f6p*(1gq(sau@-$w!&v(9fd__6&faj_m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["dev-polls.herokuapp.com"] 
+ALLOWED_HOSTS = ["dev-polls.herokuapp.com",'127.0.0.1'] 
 
 
 # Application definition
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +127,7 @@ STATICFILES_DIRS = (
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
+# ADDING MANUALLY 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]

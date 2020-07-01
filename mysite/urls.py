@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+admin.site.site_header = "Hello NITIN :"
+admin.site.site_title = "Welcome to Nitin"
+admin.site.index_title = "This is your Portal"
+
 urlpatterns = [
     #path('', views.index, name='index'),
-    path('nit/', include('polls.urls')),
+    path('polls', include('polls.urls')),
     path('admin/', admin.site.urls),
+    path('',include('polls.urls')),
 ]
